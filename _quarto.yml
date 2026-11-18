@@ -1,15 +1,19 @@
 project:
   type: website
+  output-dir: docs
 
 bibliography: references.bib  
 
 website:
-  title: "Muliscale Methods"
   navbar:
+    search: true
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Home"
+        href: index.qmd
+      - text: "MsFEMs"
+        href: msfem.qmd
+      - text: "Correctors"
+        href: correctors.qmd
 
 format:
   html:
@@ -18,6 +22,3 @@ format:
       - brand
     css: styles.css
     toc: true
-
-
-
