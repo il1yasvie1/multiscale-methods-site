@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "correctors.html",
+    "href": "correctors.html",
+    "title": "Correctors",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "msfem.html",
+    "href": "msfem.html",
+    "title": "Multiscale Finite Element Methods (MsFEMs)",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mutiscale Methods",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]
