@@ -2,4 +2,5 @@
 title: "Multiscale Finite Element Methods (MsFEMs)"
 ---
 
-About this site
+\newcommand{\Rd}{\mathbb{R}^{d}}
+

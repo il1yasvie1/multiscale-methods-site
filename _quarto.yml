@@ -2,18 +2,19 @@ project:
   type: website
   output-dir: docs
 
-bibliography: references.bib  
-
 website:
   navbar:
     search: true
+    tools:
+      - icon: github
+        href:  https://github.com/il1yasvie1/multiscale-methods
     left:
       - text: "Home"
         href: index.qmd
       - text: "MsFEMs"
-        href: msfem.qmd
+        href: msfem/msfem.qmd
       - text: "Correctors"
-        href: correctors.qmd
+        href: correctors/correctors.qmd
 
 format:
   html:
@@ -22,3 +23,4 @@ format:
       - brand
     css: styles.css
     toc: true
+
