@@ -12,9 +12,9 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "MsFEMs"
-        href: msfem/msfem.qmd
+        href: msfem.qmd
       - text: "Correctors"
-        href: correctors/correctors.qmd
+        href: correctors.qmd
 
 format:
   html:
