@@ -1,38 +1,10 @@
 [
   {
-    "objectID": "correctors.html",
-    "href": "correctors.html",
-    "title": "Correctors",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "msfem.html",
-    "href": "msfem.html",
-    "title": "Multiscale Finite Element Methods (MsFEMs)",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Mutiscale Methods",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "msfem.html#multiscale-finite-element-methods",
-    "href": "msfem.html#multiscale-finite-element-methods",
-    "title": "Multiscale Finite Element Methods (MsFEMs)",
-    "section": "Multiscale Finite Element Methods",
-    "text": "Multiscale Finite Element Methods\nblablabla"
-  },
-  {
-    "objectID": "msfem.html#intro",
-    "href": "msfem.html#intro",
-    "title": "Multiscale Finite Element Methods (MsFEMs)",
-    "section": "intro",
-    "text": "intro\nbablblabla \\(\\mathbb{R}^{d}\\)"
   },
   {
     "objectID": "correctors/correctors.html",
@@ -42,25 +14,11 @@
     "text": "In this section, consider the elliptic PDE on the unbounded domain \\[\n    -\\nabla \\cdot a \\nabla u = g \\quad \\text{in } \\mathbb{R}^{d},\n\\] where \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is uniformly elliptic.\nWe truncate the infinite domain \\(\\mathbb{R}^{d}\\) into a finite domain as \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla u_R\n           = g & \\text{in } K_R=(-R/2, R/2)^d, \\\\\n       u_R = 0 & \\text{on } \\partial K_R.\n    \\end{cases}\n\\] We introduce \\(u_{R, T}=\\int_0^T w_R(t, x)\\,dt\\) where \\(w_R\\) solves the parabolic equation \\[\n    \\begin{cases}\n       \\partial_t w_R(t, x)-\\nabla \\cdot a(x) \\nabla w_R(t, x)\n           = 0 & (t, x) \\in (0, T] \\times K_R, \\\\\n       w_R(0 ,x) = g(x) &  x\\in K_R,\\\\\n       w_R(t, x) = 0    & (t, x) \\in (0, T] \\times \\partial K_R.\n    \\end{cases}\n\\] Observe that \\(u_{R, T}\\) solves \\[\n-\\nabla \\cdot a \\nabla u_{R, T}=g - e^{-T\\mathcal{A}}g \\quad \\text{in } K_R,\n\\] where \\(\\mathcal{A}:= \\nabla \\cdot a \\nabla\\) and \\(e^{-T\\mathcal{A}}g(x) = w_R(T, x)\\)."
   },
   {
-    "objectID": "correctors/correctors.html#unbounded-domain-problem",
-    "href": "correctors/correctors.html#unbounded-domain-problem",
-    "title": "Correctors",
-    "section": "",
-    "text": "In this section, consider the elliptic PDE on the unbounded domain \\[\n    -\\nabla \\cdot a \\nabla u = g \\quad \\text{in } \\mathbb{R}^{d},\n\\] where \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is \\(K:=(-1/2, 1/2)^d\\)-periodic.\nWe truncate the infinite domain \\(\\mathbb{R}^{d}\\) into a finite domain as \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla u_R\n           = g & \\text{in } K_R=(-R/2, R/2)^d, \\\\\n       u_R = 0 & \\text{on } \\partial K_R.\n    \\end{cases}\n\\] We introduce \\(u_{R, T}=\\int_0^T w_R(t, x)\\,dt\\) where \\(w_R\\) solves the parabolic equation \\[\n    \\begin{cases}\n       \\partial_t w_R(t, x)-\\nabla \\cdot a(x) \\nabla w_R(t, x)\n           = 0 & (t, x) \\in (0, T] \\times K_R, \\\\\n       w_R(0 ,x) = g(x) &  x\\in K_R,\\\\\n       w_R(t, x) = 0    & (t, x) \\in (0, T] \\times \\partial K_R.\n    \\end{cases}\n\\] Observe that \\(u_{R, T}\\) solves \\[\n-\\nabla \\cdot a \\nabla u_{R, T}=g - e^{-T\\mathcal{A}}g \\quad \\text{in } K_R,\n\\] where \\(\\mathcal{A}:= \\nabla \\cdot a \\nabla\\) and \\(e^{-T\\mathcal{A}}g(x) = w_R(T, x)\\).\nFor the corrector problems, define \\(g_j=\\nabla \\cdot a e_j\\) for \\(e_j\\in \\mathbb{R}^{d}\\)."
-  },
-  {
     "objectID": "correctors/correctors.html#infinite-domain-problem",
     "href": "correctors/correctors.html#infinite-domain-problem",
     "title": "Correctors",
     "section": "",
     "text": "In this section, consider the elliptic PDE on the unbounded domain \\[\n    -\\nabla \\cdot a \\nabla u = g \\quad \\text{in } \\mathbb{R}^{d},\n\\] where \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is uniformly elliptic.\nWe truncate the infinite domain \\(\\mathbb{R}^{d}\\) into a finite domain as \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla u_R\n           = g & \\text{in } K_R=(-R/2, R/2)^d, \\\\\n       u_R = 0 & \\text{on } \\partial K_R.\n    \\end{cases}\n\\] We introduce \\(u_{R, T}=\\int_0^T w_R(t, x)\\,dt\\) where \\(w_R\\) solves the parabolic equation \\[\n    \\begin{cases}\n       \\partial_t w_R(t, x)-\\nabla \\cdot a(x) \\nabla w_R(t, x)\n           = 0 & (t, x) \\in (0, T] \\times K_R, \\\\\n       w_R(0 ,x) = g(x) &  x\\in K_R,\\\\\n       w_R(t, x) = 0    & (t, x) \\in (0, T] \\times \\partial K_R.\n    \\end{cases}\n\\] Observe that \\(u_{R, T}\\) solves \\[\n-\\nabla \\cdot a \\nabla u_{R, T}=g - e^{-T\\mathcal{A}}g \\quad \\text{in } K_R,\n\\] where \\(\\mathcal{A}:= \\nabla \\cdot a \\nabla\\) and \\(e^{-T\\mathcal{A}}g(x) = w_R(T, x)\\)."
-  },
-  {
-    "objectID": "correctors/correctors.html#cell-problem",
-    "href": "correctors/correctors.html#cell-problem",
-    "title": "Correctors",
-    "section": "Cell Problem",
-    "text": "Cell Problem\nFor the corrector problems, define \\(g_j=\\nabla \\cdot a e_j\\) for \\(e_j\\in \\mathbb{R}^{d}\\)."
   },
   {
     "objectID": "correctors/correctors.html#cell-problems",
