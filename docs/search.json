@@ -1,37 +1,37 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Mutiscale Methods",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "correctors/correctors.html",
-    "href": "correctors/correctors.html",
+    "objectID": "correctors.html",
+    "href": "correctors.html",
     "title": "Correctors",
     "section": "",
     "text": "In this section, consider the elliptic PDE on the unbounded domain \\[\n    -\\nabla \\cdot a \\nabla u = g \\quad \\text{in } \\mathbb{R}^{d},\n\\] where \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is uniformly elliptic.\nWe truncate the infinite domain \\(\\mathbb{R}^{d}\\) into a finite domain as \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla u_R\n           = g & \\text{in } K_R=(-R/2, R/2)^d, \\\\\n       u_R = 0 & \\text{on } \\partial K_R.\n    \\end{cases}\n\\] We introduce \\(u_{R, T}=\\int_0^T w_R(t, x)\\,dt\\) where \\(w_R\\) solves the parabolic equation \\[\n    \\begin{cases}\n       \\partial_t w_R(t, x)-\\nabla \\cdot a(x) \\nabla w_R(t, x)\n           = 0 & (t, x) \\in (0, T] \\times K_R, \\\\\n       w_R(0 ,x) = g(x) &  x\\in K_R,\\\\\n       w_R(t, x) = 0    & (t, x) \\in (0, T] \\times \\partial K_R.\n    \\end{cases}\n\\] Observe that \\(u_{R, T}\\) solves \\[\n-\\nabla \\cdot a \\nabla u_{R, T}=g - e^{-T\\mathcal{A}}g \\quad \\text{in } K_R,\n\\] where \\(\\mathcal{A}:= \\nabla \\cdot a \\nabla\\) and \\(e^{-T\\mathcal{A}}g(x) = w_R(T, x)\\)."
   },
   {
-    "objectID": "correctors/correctors.html#infinite-domain-problem",
-    "href": "correctors/correctors.html#infinite-domain-problem",
+    "objectID": "correctors.html#infinite-domain-problem",
+    "href": "correctors.html#infinite-domain-problem",
     "title": "Correctors",
     "section": "",
     "text": "In this section, consider the elliptic PDE on the unbounded domain \\[\n    -\\nabla \\cdot a \\nabla u = g \\quad \\text{in } \\mathbb{R}^{d},\n\\] where \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is uniformly elliptic.\nWe truncate the infinite domain \\(\\mathbb{R}^{d}\\) into a finite domain as \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla u_R\n           = g & \\text{in } K_R=(-R/2, R/2)^d, \\\\\n       u_R = 0 & \\text{on } \\partial K_R.\n    \\end{cases}\n\\] We introduce \\(u_{R, T}=\\int_0^T w_R(t, x)\\,dt\\) where \\(w_R\\) solves the parabolic equation \\[\n    \\begin{cases}\n       \\partial_t w_R(t, x)-\\nabla \\cdot a(x) \\nabla w_R(t, x)\n           = 0 & (t, x) \\in (0, T] \\times K_R, \\\\\n       w_R(0 ,x) = g(x) &  x\\in K_R,\\\\\n       w_R(t, x) = 0    & (t, x) \\in (0, T] \\times \\partial K_R.\n    \\end{cases}\n\\] Observe that \\(u_{R, T}\\) solves \\[\n-\\nabla \\cdot a \\nabla u_{R, T}=g - e^{-T\\mathcal{A}}g \\quad \\text{in } K_R,\n\\] where \\(\\mathcal{A}:= \\nabla \\cdot a \\nabla\\) and \\(e^{-T\\mathcal{A}}g(x) = w_R(T, x)\\)."
   },
   {
-    "objectID": "correctors/correctors.html#cell-problems",
-    "href": "correctors/correctors.html#cell-problems",
+    "objectID": "correctors.html#cell-problems",
+    "href": "correctors.html#cell-problems",
     "title": "Correctors",
     "section": "Cell Problems",
     "text": "Cell Problems\nConsider \\(a:\\mathbb{R}^{d}\\to \\mathbb{R}^{d \\times d}\\) is \\(K=(-1/2, 1/2)^d\\)-periodic. From the homogenization theory, we have the cell problems \\[\n    \\begin{cases}\n       -\\nabla \\cdot a \\nabla \\chi_j\n           = g_j  \\quad \\text{ in } \\mathbb{R}^{d}, \\\\\n       \\chi_j \\text{ is } K\\text{-peroidic}, \\int_K \\chi_j = 0.\n    \\end{cases}\n\\] where \\(g_j=\\nabla \\cdot a e_j\\) for \\(e_j\\in \\mathbb{R}^{d}\\)."
   },
   {
-    "objectID": "correctors/correctors.html#numerical-experiments",
-    "href": "correctors/correctors.html#numerical-experiments",
+    "objectID": "correctors.html#numerical-experiments",
+    "href": "correctors.html#numerical-experiments",
     "title": "Correctors",
     "section": "Numerical Experiments",
     "text": "Numerical Experiments\n\nHomogenization Theory\nConsider the periodic coefficient \\(a:\\mathbb{R}^2 \\to \\mathbb{R}^{2\\times 2}\\) \\[\na(x)=\\frac{1}{8\\pi^2}\\begin{pmatrix}\\dfrac{2}{2+\\cos(2\\pi x_1)}&0\\\\0&1+\\dfrac12\\cos(2\\pi x_1)\\end{pmatrix}.\n\\] Correctors are \\[\n\\chi_1(x) = \\frac{1}{4\\pi} \\sin(2\\pi x_1),\\quad \\chi_2(x)=0.\n\\] Homogenized coefficient is \\[\na^0 = \\frac{1}{8\\pi ^2} I_{2\\times 2}.\n\\]\n\n\nError Norms\n\\[\nE^{\\alpha}_{\\,\\lvert \\cdot \\rvert_{H^1},\\,R,\\,L}=\\sum_{\\tau \\in \\mathcal{T}^h(K_R)} \\sum_{j=1}^d \\int_{\\tau \\cap K_L} \\lvert \\nabla\\chi_j - \\nabla\\chi_{j, R} \\rvert^2  \n\\] \\[\nE^{\\alpha}_{\\,\\| \\cdot \\|_{L^2},\\,R,\\,L}=\\sum_{\\tau \\in \\mathcal{T}^h(K_R)} \\sum_{j=1}^d \\int_{\\tau \\cap K_L} \\lvert \\chi_j - \\chi_{j, R} \\rvert^2  \n\\] \\[\nE^{\\alpha}_{\\,\\| \\cdot \\|_{H^1},\\,R,\\,L} = \\sqrt{\n    \\big(E^{\\alpha}_{\\,\\| \\cdot \\|_{L^2},\\,R,\\,L}\n    \\big)^2 +\n    \\big(E^{\\alpha}_{\\,\\lvert \\cdot \\rvert_{H^1},\\,R,\\,L}\n    \\big)^2\n    }\n\\]\n\\[\ne_i\\cdot a^0_{R, L} e_j = \\int_{K_L} e_i \\cdot\n\\big(a (e_j + \\nabla \\chi_{j, R})\n\\big)\n\\]\n\\[\nE_{\\mathrm{HMM}} = \\|a^0 - a^0_{R, L}\\|_F\n\\]\n\n\nParameter Settings\n\nWindowing/Oversampling size: \\(L = \\frac{2}{3}R\\). \\(R = (1+2\\delta)L \\iff \\delta = \\frac{\\frac{R}{L} - 1}{2}=0.25.\\)\nDefault time setting: \\(T= 2\\pi \\sqrt{\\lambda \\Lambda} \\lvert R-L \\rvert = 4\\pi \\lvert R-L \\rvert = \\frac{4}{3}\\pi R\\).\nExperiment 1:\n\n\\(\\alpha \\in \\{\\mathrm{ell}\\}\\)\n\\(R \\in \\{0.1, 0.2, 0.3, \\ldots, 15\\}\\)\n\\(h=2^{-7}\\)\n\n\nExperiment 2:\n\n\\(\\alpha \\in \\{\\mathrm{ell},\\mathrm{par}, \\mathrm{mod} \\}\\)\n\\(R \\in \\{0.25, 0.5, 0.75, \\ldots, 15\\}\\)\n\\(h=2^{-4}\\)\n\\(T\\in \\{1, 2, 3, \\ldots, 20\\}\\) for \\(\\alpha \\in \\{\\mathrm{par}, \\mathrm{mod}\\}\\)\n\\(\\Delta T = 0.25\\) for \\(\\alpha = \\mathrm{par}\\)\n\n\n\nDefault time setting\n\n\n\n\n\n\\(L^2\\) errors\n\n\n\n\n\n\\(H^1\\)-semi errors\n\n\n\n\n\n\\(H^1\\) errros\n\n\n\n\n\nBest \\(T\\)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mutiscale Methods",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]

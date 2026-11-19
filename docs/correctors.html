@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Multiscale Finite Element Methods (MsFEMs)</title>
+<title>Correctors</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,24 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d31a0c91b01e363be7b7a36e602e2c70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d31a0c91b01e363be7b7a36e602e2c70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,8 +75,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
@@ -91,15 +120,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../msfem/msfem.html" aria-current="page"> 
+    <a class="nav-link" href="./msfem.html"> 
 <span class="menu-text">MsFEMs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../correctors/correctors.html"> 
+    <a class="nav-link active" href="./correctors.html" aria-current="page"> 
 <span class="menu-text">Correctors</span></a>
   </li>  
 </ul>
@@ -115,15 +144,28 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#infinite-domain-problem" id="toc-infinite-domain-problem" class="nav-link active" data-scroll-target="#infinite-domain-problem">Infinite Domain Problem</a></li>
+  <li><a href="#cell-problems" id="toc-cell-problems" class="nav-link" data-scroll-target="#cell-problems">Cell Problems</a></li>
+  <li><a href="#numerical-experiments" id="toc-numerical-experiments" class="nav-link" data-scroll-target="#numerical-experiments">Numerical Experiments</a>
+  <ul class="collapse">
+  <li><a href="#homogenization-theory" id="toc-homogenization-theory" class="nav-link" data-scroll-target="#homogenization-theory">Homogenization Theory</a></li>
+  <li><a href="#error-norms" id="toc-error-norms" class="nav-link" data-scroll-target="#error-norms">Error Norms</a></li>
+  <li><a href="#parameter-settings" id="toc-parameter-settings" class="nav-link" data-scroll-target="#parameter-settings">Parameter Settings</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Multiscale Finite Element Methods (MsFEMs)</h1>
+<h1 class="title">Correctors</h1>
 </div>
 
 
@@ -140,8 +182,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="infinite-domain-problem" class="level2">
+<h2 class="anchored" data-anchor-id="infinite-domain-problem">Infinite Domain Problem</h2>
+<p>In this section, consider the elliptic PDE on the unbounded domain <span class="math display">\[
+    -\nabla \cdot a \nabla u = g \quad \text{in } \mathbb{R}^{d},
+\]</span> where <span class="math inline">\(a:\mathbb{R}^{d}\to \mathbb{R}^{d \times d}\)</span> is uniformly elliptic.</p>
+<p>We truncate the infinite domain <span class="math inline">\(\mathbb{R}^{d}\)</span> into a finite domain as <span class="math display">\[
+    \begin{cases}
+       -\nabla \cdot a \nabla u_R
+           = g &amp; \text{in } K_R=(-R/2, R/2)^d, \\
+       u_R = 0 &amp; \text{on } \partial K_R.
+    \end{cases}
+\]</span> We introduce <span class="math inline">\(u_{R, T}=\int_0^T w_R(t, x)\,dt\)</span> where <span class="math inline">\(w_R\)</span> solves the parabolic equation <span class="math display">\[
+    \begin{cases}
+       \partial_t w_R(t, x)-\nabla \cdot a(x) \nabla w_R(t, x)
+           = 0 &amp; (t, x) \in (0, T] \times K_R, \\
+       w_R(0 ,x) = g(x) &amp;  x\in K_R,\\
+       w_R(t, x) = 0    &amp; (t, x) \in (0, T] \times \partial K_R.
+    \end{cases}
+\]</span> Observe that <span class="math inline">\(u_{R, T}\)</span> solves <span class="math display">\[
+-\nabla \cdot a \nabla u_{R, T}=g - e^{-T\mathcal{A}}g \quad \text{in } K_R,
+\]</span> where <span class="math inline">\(\mathcal{A}:= \nabla \cdot a \nabla\)</span> and <span class="math inline">\(e^{-T\mathcal{A}}g(x) = w_R(T, x)\)</span>.</p>
+</section>
+<section id="cell-problems" class="level2">
+<h2 class="anchored" data-anchor-id="cell-problems">Cell Problems</h2>
+<p>Consider <span class="math inline">\(a:\mathbb{R}^{d}\to \mathbb{R}^{d \times d}\)</span> is <span class="math inline">\(K=(-1/2, 1/2)^d\)</span>-periodic. From the homogenization theory, we have the cell problems <span class="math display">\[
+    \begin{cases}
+       -\nabla \cdot a \nabla \chi_j
+           = g_j  \quad \text{ in } \mathbb{R}^{d}, \\
+       \chi_j \text{ is } K\text{-peroidic}, \int_K \chi_j = 0.
+    \end{cases}
+\]</span> where <span class="math inline">\(g_j=\nabla \cdot a e_j\)</span> for <span class="math inline">\(e_j\in \mathbb{R}^{d}\)</span>.</p>
+</section>
+<section id="numerical-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-experiments">Numerical Experiments</h2>
+<section id="homogenization-theory" class="level3">
+<h3 class="anchored" data-anchor-id="homogenization-theory">Homogenization Theory</h3>
+<p>Consider the periodic coefficient <span class="math inline">\(a:\mathbb{R}^2 \to \mathbb{R}^{2\times 2}\)</span> <span class="math display">\[
+a(x)=\frac{1}{8\pi^2}\begin{pmatrix}\dfrac{2}{2+\cos(2\pi x_1)}&amp;0\\0&amp;1+\dfrac12\cos(2\pi x_1)\end{pmatrix}.
+\]</span> Correctors are <span class="math display">\[
+\chi_1(x) = \frac{1}{4\pi} \sin(2\pi x_1),\quad \chi_2(x)=0.
+\]</span> Homogenized coefficient is <span class="math display">\[
+a^0 = \frac{1}{8\pi ^2} I_{2\times 2}.
+\]</span></p>
+</section>
+<section id="error-norms" class="level3">
+<h3 class="anchored" data-anchor-id="error-norms">Error Norms</h3>
+<p><span class="math display">\[
+E^{\alpha}_{\,\lvert \cdot \rvert_{H^1},\,R,\,L}=\sum_{\tau \in \mathcal{T}^h(K_R)} \sum_{j=1}^d \int_{\tau \cap K_L} \lvert \nabla\chi_j - \nabla\chi_{j, R} \rvert^2  
+\]</span> <span class="math display">\[
+E^{\alpha}_{\,\| \cdot \|_{L^2},\,R,\,L}=\sum_{\tau \in \mathcal{T}^h(K_R)} \sum_{j=1}^d \int_{\tau \cap K_L} \lvert \chi_j - \chi_{j, R} \rvert^2  
+\]</span> <span class="math display">\[
+E^{\alpha}_{\,\| \cdot \|_{H^1},\,R,\,L} = \sqrt{
+    \big(E^{\alpha}_{\,\| \cdot \|_{L^2},\,R,\,L}
+    \big)^2 +
+    \big(E^{\alpha}_{\,\lvert \cdot \rvert_{H^1},\,R,\,L}
+    \big)^2
+    }
+\]</span></p>
+<p><span class="math display">\[
+e_i\cdot a^0_{R, L} e_j = \int_{K_L} e_i \cdot
+\big(a (e_j + \nabla \chi_{j, R})
+\big)
+\]</span></p>
+<p><span class="math display">\[
+E_{\mathrm{HMM}} = \|a^0 - a^0_{R, L}\|_F
+\]</span></p>
+</section>
+<section id="parameter-settings" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-settings">Parameter Settings</h3>
+<ul>
+<li><p>Windowing/Oversampling size: <span class="math inline">\(L = \frac{2}{3}R\)</span>. <span class="math inline">\(R = (1+2\delta)L \iff \delta = \frac{\frac{R}{L} - 1}{2}=0.25.\)</span></p></li>
+<li><p>Default time setting: <span class="math inline">\(T= 2\pi \sqrt{\lambda \Lambda} \lvert R-L \rvert = 4\pi \lvert R-L \rvert = \frac{4}{3}\pi R\)</span>.</p></li>
+<li><p>Experiment 1:</p>
+<ul>
+<li><span class="math inline">\(\alpha \in \{\mathrm{ell}\}\)</span></li>
+<li><span class="math inline">\(R \in \{0.1, 0.2, 0.3, \ldots, 15\}\)</span></li>
+<li><span class="math inline">\(h=2^{-7}\)</span></li>
+<li><img src="assets/overview_R_periodic_1_128.png" class="img-fluid"></li>
+</ul></li>
+<li><p>Experiment 2:</p>
+<ul>
+<li><span class="math inline">\(\alpha \in \{\mathrm{ell},\mathrm{par}, \mathrm{mod} \}\)</span></li>
+<li><span class="math inline">\(R \in \{0.25, 0.5, 0.75, \ldots, 15\}\)</span></li>
+<li><span class="math inline">\(h=2^{-4}\)</span></li>
+<li><span class="math inline">\(T\in \{1, 2, 3, \ldots, 20\}\)</span> for <span class="math inline">\(\alpha \in \{\mathrm{par}, \mathrm{mod}\}\)</span></li>
+<li><span class="math inline">\(\Delta T = 0.25\)</span> for <span class="math inline">\(\alpha = \mathrm{par}\)</span></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/overview_fixed_default_T_periodic_1_16.png" class="img-fluid figure-img"></p>
+<figcaption>Default time setting</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/overview_corrector_l2_error_periodic_1_16_relative_grayscale.png" class="img-fluid figure-img"></p>
+<figcaption><span class="math inline">\(L^2\)</span> errors</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/overview_corrector_h1_semi_error_periodic_1_16_relative_grayscale.png" class="img-fluid figure-img"></p>
+<figcaption><span class="math inline">\(H^1\)</span>-semi errors</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/overview_corrector_h1_error_periodic_1_16_relative_grayscale.png" class="img-fluid figure-img"></p>
+<figcaption><span class="math inline">\(H^1\)</span> errros</figcaption>
+</figure>
+</div></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/overview_best_T_periodic_1_16.png" class="img-fluid figure-img"></p>
+<figcaption>Best <span class="math inline">\(T\)</span></figcaption>
+</figure>
+</div></li>
+</ul></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
